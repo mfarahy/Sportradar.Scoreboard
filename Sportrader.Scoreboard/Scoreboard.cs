@@ -1,10 +1,4 @@
 ﻿using FluentResults;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sportrader.Scoreboard
 {
@@ -43,30 +37,40 @@ namespace Sportrader.Scoreboard
 
             var startResult = match.Start();
             if (!startResult.IsSuccess)
+            {
                 return startResult;
+            }
 
             var updateResult = match.UpdateScore(0, 0);
             if (!updateResult.IsSuccess)
+            {
                 return updateResult;
+            }
 
             _onlineMatches.Add(match);
 
             return Result.Ok(match);
         }
 
-        private void Match_OnFinished(object? sender, Match e)
+        private void Match_OnFinished(object? sender, CompletedMatchResult e)
         {
-            throw new NotImplementedException();
+            var match = (Match)sender;
+
+            _onlineMatches.Remove(match);
         }
 
-        private void Match_OnCanceled(object? sender, Match e)
+        private void Match_OnCanceled(object? sender, CanceledMatchResult e)
         {
-            throw new NotImplementedException();
+            var match = (Match)sender;
+
+            _onlineMatches.Remove(match);
         }
 
         public ScoreboardSummary GetSummary()
         {
-            throw new System.NotImplementedException();
+            return new ScoreboardSummary(_onlineMatches.Order());
         }
+
+        
     }
 }

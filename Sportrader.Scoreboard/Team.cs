@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sportrader.Scoreboard
+﻿namespace Sportrader.Scoreboard
 {
     public class Team : IEquatable<Team>
     {
-        public Team(int id,string name, string flag)
+        public Team(int id, string name, string flag)
         {
             Id = id;
             Name = name;
@@ -19,12 +13,28 @@ namespace Sportrader.Scoreboard
         public string Name { get; }
         public string Flag { get; }
 
-      
-
         public bool Equals(Team? other)
         {
             if (other == null) return false;
-            return this.Id == other.Id;
+            return Id == other.Id;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Team another && another != null)
+                return another.Id == Id;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"${Id} - {Name}({Flag})";
         }
     }
 }
