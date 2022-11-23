@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Sportrader.Scoreboard
 {
-    public enum MatchStates
+    public class ScoreboardSummary
     {
-        None,
-        Started,
-        Ended,
-        Canceled
     }
 }

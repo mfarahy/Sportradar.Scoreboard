@@ -1,51 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sportrader.Scoreboard
+﻿namespace Sportrader.Scoreboard
 {
-    public class MatchResult
+    public abstract class MatchResult
     {
-        public CancelationReasons CancelationReason
+        public MatchResult(Team homeTeam, Team awayTeam)
         {
-            get => default;
-            set
-            {
-            }
+            HomeTeam = homeTeam;
+            AwayTeam = awayTeam;
         }
 
-        public string Note
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Team HomeTeam { private set; get; }
 
-        public int Duration
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public int HomeTeamScore
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public int AwayTeamScore
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Team AwayTeam { private set; get; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentResults;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,100 +9,82 @@ namespace Sportrader.Scoreboard
 {
     public class Match
     {
-        public event EventHandler OnCanceled;
-        public event EventHandler OnFinished;
-        public event EventHandler OnScoreUpdated;
+        public event EventHandler<Match> OnCanceled;
+        public event EventHandler<Match> OnFinished;
+        public event EventHandler<Match> OnScoreUpdated;
 
-        public
-                public Match()
+        public Match(Team homeTeam, Team awayTeam)
         {
+            this.HomeTeam = homeTeam;
+            this.AwayTeam = awayTeam;
         }
 
-        public System.DateTime StartTime
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateTime StartTime { get; set; } = default;
 
-        public MatchStates Status
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateTime LastUpdate { get; set; } = default;
 
-        public string Description
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public MatchStates Status { get; set; } = MatchStates.None;
 
-        public Team HomeTeam
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Description { get; set; }
 
-        public Team AwayTeam
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Team HomeTeam { get; set; }
 
-        public MatchResult? Result
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Team AwayTeam { get; set; }
 
-        public ushort HomeTeamScore
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public CompletedMatchResult? MatchResult { get; set; } = null;
 
-        public ushort AwayTeamScore
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public ushort HomeTeamScore { get; set; } = 0;
+
+        public ushort AwayTeamScore { get; set; } = 0;
 
         public ushort TotalScore
         {
-            get => default;
-            set
+            get { return (ushort)(HomeTeamScore + AwayTeamScore); }
+        }
+
+        public Result Start()
+        {
+            if (Status != MatchStates.None)
             {
+                return Result.Fail("Invalid status. Create another match to start.");
             }
+
+
+            StartTime = DateTime.Now;
+            Status = MatchStates.Started;
+
+            return Result.Ok();
         }
 
-        public FluentResults.Result<MatchResult> Finish()
+        public Result<MatchResult> Finish()
+        {
+            if (Status != MatchStates.Started)
+            {
+                return Result.Fail("A not started match is not able to get end!");
+            }
+
+            TimeSpan duration = (TimeSpan)(DateTime.Now - this.StartTime);
+            MatchResult result = new CompletedMatchResult(HomeTeam, AwayTeam, HomeTeamScore, AwayTeamScore, duration);
+           
+            OnFinished?.Invoke(this, this);
+
+            return Result.Ok(result);
+        }
+
+        public Result<CompletedMatchResult> Cancel(CancelationReasons reason, string note)
         {
             throw new NotImplementedException();
         }
 
-        public FluentResults.Result<MatchResult> Cancel(CancelationReasons reason, string description)
+        public Result UpdateScore(ushort homeTeamScore, ushort awayTeamScore)
         {
-            throw new NotImplementedException();
-        }
+            if (Status != MatchStates.Started)
+                return Result.Fail("Score could get updated just after starting a match.");
 
-        public void UpdateScore(ushort homeTeamScore, ushort awayTeamScore)
-        {
-            throw new System.NotImplementedException();
+            this.HomeTeamScore = homeTeamScore;
+            this.AwayTeamScore = awayTeamScore;
+
+            return Result.Ok();
         }
     }
 }
