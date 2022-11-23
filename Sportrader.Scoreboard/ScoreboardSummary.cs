@@ -4,14 +4,14 @@ namespace Sportrader.Scoreboard
 {
     public class ScoreboardSummary
     {
-        public ScoreboardSummary(IEnumerable<Match> matches)
+        public ScoreboardSummary(IOrderedEnumerable<Match> matches)
         {
             Matches = matches;
             SnapshotTime = DateTime.Now;
         }
 
         public DateTime SnapshotTime { get; private set; }
-        public IEnumerable<Match> Matches { get; private set; }
+        public IOrderedEnumerable<Match> Matches { get; private set; }
 
         public override string ToString()
         {

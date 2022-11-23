@@ -2,16 +2,14 @@
 {
     public class Team : IEquatable<Team>
     {
-        public Team(int id, string name, string flag)
+        public Team(int id, string name)
         {
             Id = id;
             Name = name;
-            Flag = flag;
         }
 
         public int Id { get; }
         public string Name { get; }
-        public string Flag { get; }
 
         public bool Equals(Team? other)
         {
@@ -34,7 +32,7 @@
 
         public override string ToString()
         {
-            return $"${Id} - {Name}({Flag})";
+            return $"#{Id}:{Name}";
         }
     }
 }

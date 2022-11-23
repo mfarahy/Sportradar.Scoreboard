@@ -2,7 +2,7 @@
 
 namespace Sportrader.Scoreboard
 {
-    public class Match: IComparable<Match>
+    public class Match
     {
         public event EventHandler<CanceledMatchResult> OnCanceled;
         public event EventHandler<CompletedMatchResult> OnFinished;
@@ -60,6 +60,8 @@ namespace Sportrader.Scoreboard
             var duration = DateTime.Now - this.StartTime;
             var result = new CompletedMatchResult(HomeTeam, AwayTeam, HomeTeamScore, AwayTeamScore, duration);
 
+            Status = MatchStates.Ended;
+
             OnFinished?.Invoke(this, result);
 
             return Result.Ok(result);
@@ -73,6 +75,8 @@ namespace Sportrader.Scoreboard
             }
 
             var result = new CanceledMatchResult(HomeTeam, AwayTeam, reason, note);
+
+            Status= MatchStates.Canceled;   
 
             OnCanceled?.Invoke(this, result);
 
@@ -89,6 +93,8 @@ namespace Sportrader.Scoreboard
             HomeTeamScore = homeTeamScore;
             AwayTeamScore = awayTeamScore;
 
+            LastUpdate= DateTime.Now;
+
             OnScoreUpdated?.Invoke(this, this);
 
             return Result.Ok();
@@ -96,8 +102,8 @@ namespace Sportrader.Scoreboard
 
         public override bool Equals(object? obj)
         {
-            if (obj is Match another && ((another.HomeTeam == HomeTeam && another.AwayTeam == AwayTeam) || (
-                another.AwayTeam == HomeTeam && another.HomeTeam == AwayTeam)))
+            if (obj is Match another && ((another.HomeTeam.Equals(HomeTeam) && another.AwayTeam.Equals(AwayTeam)) || (
+                another.AwayTeam.Equals(HomeTeam) && another.HomeTeam.Equals(AwayTeam))))
             {
                 return true;
             }
@@ -112,16 +118,14 @@ namespace Sportrader.Scoreboard
 
         public override string ToString()
         {
-            return $"${HomeTeam.Name}(${HomeTeamScore}) vs ${AwayTeam.Name}({AwayTeamScore})";
+            return $"{HomeTeam.Name}({HomeTeamScore}) vs {AwayTeam.Name}({AwayTeamScore})";
         }
 
-        public int CompareTo(Match? other)
-        {
-            if (other == null) return -1;
+       
 
-            return other.TotalScore == TotalScore ?
-                StartTime.CompareTo(other.StartTime):
-                other.TotalScore.CompareTo(other.TotalScore);
+        public bool DidParticipate(Team team)
+        {
+            return HomeTeam.Equals(team) || AwayTeam.Equals(team);
         }
     }
 }

@@ -18,15 +18,23 @@ namespace Sportrader.Scoreboard
 
         public Result<Match> CreateMatch(Team homeTeam, Team awayTeam)
         {
-            if (_onlineMatches.Any(x => x.HomeTeam == homeTeam || x.AwayTeam == homeTeam))
+            if (homeTeam == null)
+            {
+                return Result.Fail($"Home team is null!");
+            }
+            if (awayTeam == null)
+            {
+                return Result.Fail($"Away team is null!");
+            }
+            if (_onlineMatches.Any(x => x.DidParticipate(homeTeam)))
             {
                 return Result.Fail($"Currently ${homeTeam} is playing!");
             }
-            if (_onlineMatches.Any(x => x.HomeTeam == awayTeam || x.AwayTeam == awayTeam))
+            if (_onlineMatches.Any(x => x.DidParticipate(awayTeam)))
             {
                 return Result.Fail($"Currently ${awayTeam} is playing!");
             }
-            if (homeTeam == awayTeam)
+            if (homeTeam.Equals(awayTeam))
             {
                 return Result.Fail($"A team can not play with itself!");
             }
@@ -68,9 +76,12 @@ namespace Sportrader.Scoreboard
 
         public ScoreboardSummary GetSummary()
         {
-            return new ScoreboardSummary(_onlineMatches.Order());
+            return new ScoreboardSummary(_onlineMatches.OrderDescending(new MatchComparer()));
         }
 
-        
+        public void ClearBoard()
+        {
+            _onlineMatches.Clear();
+        }
     }
 }
