@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sportrader.Scoreboard", "Sportrader.Scoreboard\Sportrader.Scoreboard.csproj", "{2A1D3C21-DD3F-4342-9305-A159E814B0A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sportrader.Scoreboard.Test", "Sportrader.Scoreboard.Test\Sportrader.Scoreboard.Test.csproj", "{91576783-E239-4184-8556-629F0C7C05DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A1D3C21-DD3F-4342-9305-A159E814B0A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A1D3C21-DD3F-4342-9305-A159E814B0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A1D3C21-DD3F-4342-9305-A159E814B0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A1D3C21-DD3F-4342-9305-A159E814B0A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91576783-E239-4184-8556-629F0C7C05DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91576783-E239-4184-8556-629F0C7C05DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91576783-E239-4184-8556-629F0C7C05DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91576783-E239-4184-8556-629F0C7C05DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29391208-9D30-489D-92B1-4515D9C4F79A}
+	EndGlobalSection
+EndGlobal
