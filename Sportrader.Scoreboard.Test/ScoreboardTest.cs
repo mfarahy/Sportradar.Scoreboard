@@ -62,7 +62,7 @@ namespace Sportrader.Scoreboard.Test
             var creationResult = scoreboard.CreateMatch(new Team(1, "team1"), new Team(2, "team2"));
             var match = creationResult.Value;
             bool isMatchOnBoard = scoreboard.OnlineMatches.Any(x => x.Equals(match));
-            match.Cancel( CancelationReasons.NatualDisaster,"Not important");
+            match.Cancel(CancelationReasons.NatualDisaster, "Not important");
             bool isMatchRemainOnBoardAfterCanceling = scoreboard.OnlineMatches.Any(x => x.Equals(match));
 
             Assert.That(creationResult.IsSuccess, Is.True);
@@ -85,7 +85,7 @@ namespace Sportrader.Scoreboard.Test
             UruguayItaly.Value.UpdateScore(6, 6);
             var ArgentinaAustralia = scoreboard.CreateMatch(new Team(9, "Argentina"), new Team(10, "Australia"));
             ArgentinaAustralia.Value.UpdateScore(3, 1);
-            var summary= scoreboard.GetSummary();
+            var summary = scoreboard.GetSummary();
             var summaryArray = summary.Matches.ToArray();
 
             Assert.That(MexicoCanada.IsSuccess, Is.True);

@@ -15,6 +15,7 @@ namespace Sportrader.Scoreboard
         }
 
         public DateTime StartTime { get; set; } = default;
+        public DateTime EndTime { get; set; } = default;
 
         public DateTime LastUpdate { get; set; } = default;
 
@@ -57,7 +58,8 @@ namespace Sportrader.Scoreboard
                 return Result.Fail("A not started match is not able to get end!");
             }
 
-            var duration = DateTime.Now - this.StartTime;
+            EndTime= DateTime.Now;
+            var duration = EndTime - this.StartTime;
             var result = new CompletedMatchResult(HomeTeam, AwayTeam, HomeTeamScore, AwayTeamScore, duration);
 
             Status = MatchStates.Ended;
@@ -76,7 +78,8 @@ namespace Sportrader.Scoreboard
 
             var result = new CanceledMatchResult(HomeTeam, AwayTeam, reason, note);
 
-            Status= MatchStates.Canceled;   
+            EndTime = DateTime.Now;
+            Status = MatchStates.Canceled;   
 
             OnCanceled?.Invoke(this, result);
 
@@ -121,9 +124,7 @@ namespace Sportrader.Scoreboard
             return $"{HomeTeam.Name}({HomeTeamScore}) vs {AwayTeam.Name}({AwayTeamScore})";
         }
 
-       
-
-        public bool DidParticipate(Team team)
+        public bool IsParticipated(Team team)
         {
             return HomeTeam.Equals(team) || AwayTeam.Equals(team);
         }

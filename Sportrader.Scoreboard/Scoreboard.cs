@@ -26,11 +26,11 @@ namespace Sportrader.Scoreboard
             {
                 return Result.Fail($"Away team is null!");
             }
-            if (_onlineMatches.Any(x => x.DidParticipate(homeTeam)))
+            if (_onlineMatches.Any(x => x.IsParticipated(homeTeam)))
             {
                 return Result.Fail($"Currently ${homeTeam} is playing!");
             }
-            if (_onlineMatches.Any(x => x.DidParticipate(awayTeam)))
+            if (_onlineMatches.Any(x => x.IsParticipated(awayTeam)))
             {
                 return Result.Fail($"Currently ${awayTeam} is playing!");
             }
