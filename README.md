@@ -1,4 +1,4 @@
-# Sportrader Scoreboard Code Challenge
+# Sportradar Scoreboard Code Challenge
 
 There are some assumptions and intentions:
 
