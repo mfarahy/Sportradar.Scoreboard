@@ -1,4 +1,4 @@
-# Sportrader.Scoreboard
+# Sportrader Scoreboard Code Challenge
 
 There are some assumptions and intentions:
 
