@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Sportrader.Scoreboard
+namespace Sportradar.Scoreboard
 {
     public class ScoreboardSummary
     {

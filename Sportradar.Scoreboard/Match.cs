@@ -1,6 +1,6 @@
 ﻿using FluentResults;
 
-namespace Sportrader.Scoreboard
+namespace Sportradar.Scoreboard
 {
     public class Match
     {

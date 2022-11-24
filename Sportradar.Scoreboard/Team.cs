@@ -1,4 +1,4 @@
-﻿namespace Sportrader.Scoreboard
+﻿namespace Sportradar.Scoreboard
 {
     public class Team : IEquatable<Team>
     {

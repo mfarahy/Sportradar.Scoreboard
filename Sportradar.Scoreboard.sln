@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sportradar.Scoreboard", "Sportradar.Scoreboard\Sportradar.Scoreboard.csproj", "{0FF38F16-8544-44AE-AA7F-DE59841270EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sportradar.Scoreboard.Test", "Sportradar.Scoreboard.Test\Sportradar.Scoreboard.Test.csproj", "{DC1E3AFE-BC35-4272-957B-3F382DD774EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FF38F16-8544-44AE-AA7F-DE59841270EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FF38F16-8544-44AE-AA7F-DE59841270EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FF38F16-8544-44AE-AA7F-DE59841270EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FF38F16-8544-44AE-AA7F-DE59841270EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC1E3AFE-BC35-4272-957B-3F382DD774EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC1E3AFE-BC35-4272-957B-3F382DD774EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC1E3AFE-BC35-4272-957B-3F382DD774EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC1E3AFE-BC35-4272-957B-3F382DD774EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29391208-9D30-489D-92B1-4515D9C4F79A}
+	EndGlobalSection
+EndGlobal

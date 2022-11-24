@@ -1,4 +1,4 @@
-namespace Sportrader.Scoreboard.Test
+namespace Sportradar.Scoreboard.Test
 {
     public class TeamTest
     {

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sportrader.Scoreboard\Sportrader.Scoreboard.csproj" />
+    <ProjectReference Include="..\Sportradar.Scoreboard\Sportradar.Scoreboard.csproj" />
   </ItemGroup>
 
 </Project>

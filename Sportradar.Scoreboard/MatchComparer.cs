@@ -1,4 +1,4 @@
-﻿namespace Sportrader.Scoreboard
+﻿namespace Sportradar.Scoreboard
 {
     internal class MatchComparer : IComparer<Match>
     {

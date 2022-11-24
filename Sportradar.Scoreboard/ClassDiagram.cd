@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Sportrader.Scoreboard.Match">
+  <Class Name="Sportradar.Scoreboard.Match">
     <Position X="5" Y="1.25" Width="2" />
     <Members>
       <Method Name="Match" Hidden="true" />
@@ -15,7 +15,7 @@
       <Property Name="AwayTeam" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Sportrader.Scoreboard.Team">
+  <Class Name="Sportradar.Scoreboard.Team">
     <Position X="9.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAEgAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
@@ -23,7 +23,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Sportrader.Scoreboard.Scoreboard">
+  <Class Name="Sportradar.Scoreboard.Scoreboard">
     <Position X="1" Y="1.25" Width="2" />
     <Members>
       <Method Name="Scoreboard" Hidden="true" />
@@ -36,21 +36,21 @@
       <Property Name="OnlineMatches" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Sportrader.Scoreboard.MatchResult">
+  <Class Name="Sportradar.Scoreboard.MatchResult">
     <Position X="1" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAA=</HashCode>
       <FileName>MatchResult.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sportrader.Scoreboard.CompletedMatchResult">
+  <Class Name="Sportradar.Scoreboard.CompletedMatchResult">
     <Position X="0.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAACAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CompletedMatchResult.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sportrader.Scoreboard.CanceledMatchResult">
+  <Class Name="Sportradar.Scoreboard.CanceledMatchResult">
     <Position X="2.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
@@ -60,14 +60,14 @@
       <Property Name="CancelationReason" />
     </ShowAsAssociation>
   </Class>
-  <Enum Name="Sportrader.Scoreboard.CancelationReasons">
+  <Enum Name="Sportradar.Scoreboard.CancelationReasons">
     <Position X="5.25" Y="8.5" Width="2" />
     <TypeIdentifier>
       <HashCode>BgAAAQAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CancelationReasons.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Sportrader.Scoreboard.MatchStates">
+  <Enum Name="Sportradar.Scoreboard.MatchStates">
     <Position X="9.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEAgAAAAAAAAAIAAAAAAAAAAAEAAAA=</HashCode>
